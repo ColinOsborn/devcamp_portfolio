@@ -35,6 +35,12 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def destroy
+    portfolio = portfolio_select
+    portfolio.destroy!
+    format.html { redirect_to portfolios_path, notice: 'The record has been deleted'}
+  end
+
   private
 
   def portfolio_select
