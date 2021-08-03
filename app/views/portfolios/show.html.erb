@@ -1,0 +1,8 @@
+<h1>Show<h1>
+
+<h1><%= @portfolio.title %></h1>
+<em><%= @portfolio.subtitle %></em>
+<p><%= @portfolio.body %></p>
+<%= image_tag @portfolio.main_image%>
+
+<%= link_to "Index", portfolios_path %>
