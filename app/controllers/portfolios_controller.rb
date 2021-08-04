@@ -10,8 +10,8 @@ class PortfoliosController < ApplicationController
   end
 
   def create
-    @portfolio = Portfolio.create!(portfolio_params)
-    if @portfolio.save
+    @portfolio = Portfolio.new(portfolio_params)
+    if @portfolio.save!
       format.html { redirect_to portfolios_path, notice: 'Your portfolio item is live!' }
     else
       format.html { render :new }
