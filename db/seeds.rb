@@ -19,7 +19,8 @@ puts '10 blog posts created!'
 5.times do |skill|
   Skill.create!(
     title: "Rails #{skill}",
-    percent_utilized: rand(1..100)
+    percent_utilized: rand(1..100),
+    badge: "http://via.placeholder.com/250x250"
   )
 end
 
@@ -44,3 +45,11 @@ Portfolio.create!(
 )
 
 puts '9 Portfolios created!'
+
+3.times do |technology|
+  Portfolio.last.technologies.create!(
+    name: "Technology #{technology}"
+  )
+end
+
+puts '3 Technologies created!'
