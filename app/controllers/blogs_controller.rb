@@ -4,10 +4,14 @@ class BlogsController < ApplicationController
   # GET /blogs or /blogs.json
   def index
     @blogs = Blog.all
+    @page_title = 'My Portfolio Blog'
   end
 
   # GET /blogs/1 or /blogs/1.json
   def show
+    @page_title = @blog.title
+    # not really a correct way to handle/do seo... but does work
+    @seo_keywords = @blog.body
   end
 
   # GET /blogs/new
@@ -25,7 +29,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: "Blog was successfully created." }
+        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
