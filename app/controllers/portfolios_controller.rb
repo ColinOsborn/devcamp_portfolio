@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
-  before_action :portfolio_select, only: %i[ show edit ]
+  before_action :portfolio_select, only: %i[show edit]
+  layout 'portfolios'
 
   def index
     @portfolio_items = Portfolio.all
