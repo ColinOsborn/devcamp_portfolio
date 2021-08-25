@@ -1,13 +1,13 @@
 class PortfoliosController < ApplicationController
   before_action :portfolio_select, only: %i[show edit]
-  
+
   def index
     @portfolio_items = Portfolio.all
   end
 
   def new
     @portfolio = Portfolio.new
-    3.times { @portfolio.technologies.build }
+    build
   end
 
   def create
@@ -25,6 +25,7 @@ class PortfoliosController < ApplicationController
 
   def edit
     portfolio_select
+    build
   end
 
   def update
@@ -54,5 +55,9 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       :thumb_image,
                                       technologies_attributes: [:name])
+  end
+
+  def build
+    3.times { @portfolio.technologies.build }
   end
 end
