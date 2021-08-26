@@ -45,6 +45,10 @@ class PortfoliosController < ApplicationController
 
   private
 
+  def build
+    3.times { @portfolio.technologies.build }
+  end
+
   def portfolio_select
     @portfolio = Portfolio.find(params[:id])
   end
@@ -55,9 +59,5 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       :thumb_image,
                                       technologies_attributes: [:name])
-  end
-
-  def build
-    3.times { @portfolio.technologies.build }
   end
 end
