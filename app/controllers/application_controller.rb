@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include SetSource
   include CurrentUserConcern
   include DefaultPageContent
-
+  before_action :configure_permitted_parameters, if: :devise_controller?      
   before_action :set_copyright
 
   def set_copyright
