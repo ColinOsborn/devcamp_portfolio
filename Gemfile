@@ -7,6 +7,7 @@ ruby '2.5.3'
 gem 'rails', '~> 6.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
+gem "autoprefixer-rails"
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -22,7 +23,7 @@ gem 'jquery-rails'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'mini_racer'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'friendly_id', '~> 5.4.0'
