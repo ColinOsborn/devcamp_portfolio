@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 end
 
+# This section below is meant to be broken out into a specific gem
 module OsbornViewTool
   class Renderer
     def self.copyright name, msg
