@@ -1,6 +1,5 @@
 class PortfoliosController < ApplicationController
   before_action :portfolio_select, only: %i[show edit]
-  layout 'portfolios'
 
   def index
     @portfolio_items = Portfolio.all
@@ -8,7 +7,7 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
-    3.times { @portfolio.technologies.build }
+    build
   end
 
   def create
@@ -26,6 +25,7 @@ class PortfoliosController < ApplicationController
 
   def edit
     portfolio_select
+    build
   end
 
   def update
@@ -44,6 +44,10 @@ class PortfoliosController < ApplicationController
   end
 
   private
+
+  def build
+    3.times { @portfolio.technologies.build }
+  end
 
   def portfolio_select
     @portfolio = Portfolio.find(params[:id])
