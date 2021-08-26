@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :portfolio_select, only: %i[show edit]
+  access all: [:show, :index, :react], user: {except: [:destroy, :create, :new, :update, :edit]}, site_admin: :all
 
   def index
     @portfolio_items = Portfolio.all
@@ -8,6 +9,10 @@ class PortfoliosController < ApplicationController
   def new
     @portfolio = Portfolio.new
     build
+  end
+# This doesn't currently exist, but is an example of scope etc
+  def react
+    @react = Portfolio.react
   end
 
   def create

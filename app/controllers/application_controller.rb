@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include SetSource
   include CurrentUserConcern
   include DefaultPageContent
-
+  before_action :configure_permitted_parameters, if: :devise_controller?      
   before_action :set_copyright
 
   def set_copyright
@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 end
 
+# This section below is meant to be broken out into a specific gem
 module OsbornViewTool
   class Renderer
     def self.copyright name, msg
