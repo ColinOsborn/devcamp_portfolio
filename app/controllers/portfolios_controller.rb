@@ -18,10 +18,12 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
+    respond_to do |format|
     if @portfolio.save!
       format.html { redirect_to portfolios_path, notice: 'Your portfolio item is live!' }
     else
       format.html { render :new }
+      end
     end
   end
 
@@ -36,17 +38,21 @@ class PortfoliosController < ApplicationController
 
   def update
     portfolio = portfolio_select
+    respond_to do |format|
     if portfolio.update!(portfolio_params)
       format.html { redirect_to portfolios_path, notice: 'The record successfully updated!' }
     else
       format.html { redirect_to :edit }
+      end
     end
   end
 
   def destroy
     portfolio = portfolio_select
     portfolio.destroy!
-    format.html { redirect_to portfolios_path, notice: 'The record has been deleted'}
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'Record was removed.' }
+    end
   end
 
   private
