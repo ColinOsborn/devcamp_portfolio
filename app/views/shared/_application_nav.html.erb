@@ -1,17 +1,12 @@
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-      <h3 class="float-md-start mb-0">Colin Osborn</h3>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
-        <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
-        <%= link_to 'Home', root_path, class:'nav-link' %>
-        <%= link_to 'About', about_path, class:'nav-link' %>
-        <%= link_to 'Contact', pages_path, class:'nav-link' %>
-        <%= link_to 'Blogs', blogs_path, class:'nav-link' %>
-        <%= link_to 'Portfolios', '/portfolios', class: 'nav-link' %>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Contact</a>
-      </nav>
-    </div>
-  </header>
+<div class="masthead clearfix">
+  <div class="inner">
+    <h3 class="masthead-brand">Colin Osborn</h3>
+    <nav class="nav nav-masthead">
+      <%= link_to "Home", root_path, class: 'nav-link' %>
+      <%= link_to "About Me", about_path, class: 'nav-link' %>
+      <%= link_to "Contact", pages_path, class: 'nav-link' %>
+      <%= link_to "Blog", blogs_path, class: 'nav-link' %>
+      <%= link_to "Portfolio", '/portfolios', class: 'nav-link' %>
+    </nav>
+  </div>
 </div>
