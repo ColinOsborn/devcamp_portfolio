@@ -11,7 +11,7 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.new
     build
   end
-# This doesn't currently exist, but is an example of scope etc
+
   def react
     @react = Portfolio.react
   end
