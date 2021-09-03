@@ -4,14 +4,14 @@ class PortfoliosController < ApplicationController
   layout 'portfolio'
   
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.by_position
   end
 
   def new
     @portfolio = Portfolio.new
     build
   end
-# This doesn't currently exist, but is an example of scope etc
+
   def react
     @react = Portfolio.react
   end
