@@ -1,8 +1,8 @@
 class PortfoliosController < ApplicationController
   before_action :portfolio_select, only: %i[show edit]
-  access all: [:show, :index, :react], user: {except: [:destroy, :create, :new, :update, :edit]}, site_admin: :all
+  access all: %i[show index react], user: { except: %i[destroy create new update edit] }, site_admin: :all
   layout 'portfolio'
-  
+
   def index
     @portfolio_items = Portfolio.all
   end
@@ -11,7 +11,8 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.new
     build
   end
-# This doesn't currently exist, but is an example of scope etc
+
+  # This doesn't currently exist, but is an example of scope etc
   def react
     @react = Portfolio.react
   end
@@ -19,10 +20,10 @@ class PortfoliosController < ApplicationController
   def create
     @portfolio = Portfolio.new(portfolio_params)
     respond_to do |format|
-    if @portfolio.save!
-      format.html { redirect_to portfolios_path, notice: 'Your portfolio item is live!' }
-    else
-      format.html { render :new }
+      if @portfolio.save!
+        format.html { redirect_to portfolios_path, notice: 'Your portfolio item is live!' }
+      else
+        format.html { render :new }
       end
     end
   end
@@ -39,10 +40,10 @@ class PortfoliosController < ApplicationController
   def update
     portfolio = portfolio_select
     respond_to do |format|
-    if portfolio.update!(portfolio_params)
-      format.html { redirect_to portfolios_path, notice: 'The record successfully updated!' }
-    else
-      format.html { redirect_to :edit }
+      if portfolio.update!(portfolio_params)
+        format.html { redirect_to portfolios_path, notice: 'The record successfully updated!' }
+      else
+        format.html { redirect_to :edit }
       end
     end
   end
@@ -69,6 +70,7 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title,
                                       :subtitle,
                                       :body,
+                                      :main_image,
                                       :thumb_image,
                                       technologies_attributes: [:name])
   end
