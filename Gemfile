@@ -31,6 +31,10 @@ gem 'mini_racer'
 gem "font-awesome-rails"
 gem 'friendly_id', '~> 5.4.0'
 gem 'kaminari'
+gem 'carrierwave', '~> 2.0'
+gem 'carrierwave-aws', '~> 1.0'
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
