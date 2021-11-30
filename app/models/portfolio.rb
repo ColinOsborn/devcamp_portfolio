@@ -9,6 +9,9 @@ class Portfolio < ApplicationRecord
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
   after_initialize :set_defaults
 
+  mount_uploader :thumb_image, PortfolioUploader
+  mount_uploader :main_image, PortfolioUploader
+
   def self.react
     where(subtitle: 'React')
   end
@@ -18,4 +21,3 @@ class Portfolio < ApplicationRecord
     self.thumb_image ||= Placeholder.image_generator(height: 350, width: 200)
   end
 end
-
