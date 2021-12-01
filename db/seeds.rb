@@ -37,7 +37,7 @@ puts '5 skills created!'
 end
 
 Portfolio.create!(
-    title: "Portfolio 9}",
+    title: "Portfolio 9",
     subtitle: 'React',
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget lectus pharetra justo laoreet suscipit in id justo. Suspendisse volutpat efficitur est, et eleifend risus convallis non. Donec mattis lacus ac bibendum tempus. Vivamus sagittis felis ligula, quis semper ex facilisis vitae. Nunc sapien dolor, ullamcorper eget posuere sed, commodo in massa.",
     main_image: "http://via.placeholder.com/600x400",
