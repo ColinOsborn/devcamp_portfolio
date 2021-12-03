@@ -9,7 +9,6 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
-    build
   end
 
   # This doesn't currently exist, but is an example of scope etc
@@ -34,7 +33,6 @@ class PortfoliosController < ApplicationController
 
   def edit
     portfolio_select
-    build
   end
 
   def update
